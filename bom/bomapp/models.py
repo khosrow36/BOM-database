@@ -1,16 +1,16 @@
 from django.db import models
 
-class Suppliers(models.Model):
+class Supplier(models.Model):
     name = models.CharField(max_length=250)
     info = models.TextField()
 
-class Parts(models.Model):
+class Part(models.Model):
     name = models.CharField(max_length=250)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    supplier = models.ForeignKey(Suppliers, on_delete=models.CASCADE)
+    supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
 
 
-class Products(models.Model):
+class Product(models.Model):
     name = models.CharField(max_length=250)
-    parts = models.ForeignKey(Parts, on_delete=models.CASCADE)
+    parts = models.ForeignKey(Part, on_delete=models.CASCADE)
     sell_price = models.DecimalField(max_digits=10, decimal_places=2)
