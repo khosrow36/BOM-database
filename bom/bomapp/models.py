@@ -12,5 +12,9 @@ class Part(models.Model):
 
 class Product(models.Model):
     name = models.CharField(max_length=250)
-    parts = models.ForeignKey(Part, on_delete=models.CASCADE)
     sell_price = models.DecimalField(max_digits=10, decimal_places=2)
+
+class BOM(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    part = models.ForeignKey(Part, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
