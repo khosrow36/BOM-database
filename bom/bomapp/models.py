@@ -25,3 +25,5 @@ class BOM(models.Model):
     quantity = models.IntegerField(default=1)
     class Meta:
         verbose_name_plural = "BOM"
+    def __str__ (self):
+        return self.product.name
