@@ -1,0 +1,8 @@
+{% extends 'bomapp/base.html' %}
+
+{% block content %}
+    <h1>Hello</h1>
+    {% for item in bom_list %}
+        {{ item.product }} {{ item.part }} {{ item.quantity }}<br>
+    {% endfor %}
+{% endblock %}
