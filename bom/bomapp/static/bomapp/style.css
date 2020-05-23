@@ -1,0 +1,13 @@
+.page-footer {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    min-height: 100px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}

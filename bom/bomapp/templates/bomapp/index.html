@@ -1,8 +1,23 @@
 {% extends 'bomapp/base.html' %}
 
 {% block content %}
-    <h1>Hello</h1>
+    <h1>Lista produktów</h1>
     {% for item in bom_list %}
-        {{ item.product }} {{ item.part }} {{ item.quantity }}<br>
+    <div class="accordion" id="accordionProducts">
+        <div class="card">
+            <div class="card-header" id="heading{{ forloop.counter }}">
+                <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapse{{ forloop.counter }}" aria-expanded="true" aria-controls="collapse{{ forloop.counter }}">
+                    {{ item.product }}
+                </button>
+                </h2>
+            </div>
+            <div id="collapse{{ forloop.counter }}" class="collapse" aria-labelledby="heading{{ forloop.counter }}" data-parent="#accordionProducts">
+                <div class="card-body">
+                    {{ item.part }} {{ item.quantity }}
+                </div>
+            </div>
+        </div>
+    </div>
     {% endfor %}
 {% endblock %}
