@@ -14,9 +14,38 @@
             </div>
             <div id="collapse{{ forloop.counter }}" class="collapse" aria-labelledby="heading{{ forloop.counter }}" data-parent="#accordionProducts">
                 <div class="card-body">
-                    {% for part in product.parts.all %}
-                        {{ part.name }}
-                    {% endfor %}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nazwa</th>
+                                <th scope="col">Cena</th>
+                                <th scope="col">Dostawca</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for part in product.parts.all %}
+                            <tr>
+                                <th scope="row">{{ forloop.counter }} </th>
+                                <td>{{ part.name }}</td>
+                                <td>{{ part.price }}</td>
+                                <td>
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary"
+                                        data-toggle="popover"
+                                        title="{{ part.supplier.name }}"
+                                        data-content="{{ part.supplier.info }}"
+                                    >
+                                        ?
+                                    </button>
+                                </td>
+                            </tr>
+                            {{ part_price|add:part.price }}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         </div>
