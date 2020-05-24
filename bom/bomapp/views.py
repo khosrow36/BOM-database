@@ -3,11 +3,11 @@ from django.http import HttpResponse
 from django.views import generic
 
 
-from .models import BOM
+from .models import Product
 
 class IndexView(generic.ListView):
     template_name = 'bomapp/index.html'
-    context_object_name = 'bom_list'
+    context_object_name = 'product_list'
 
     def get_queryset(self):
-        return BOM.objects.all
+        return Product.objects.all
