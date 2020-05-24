@@ -11,3 +11,11 @@
     color: white;
     text-align: center;
 }
+
+.cost_summary{
+    float: right;
+}
+
+.cost_summary p{
+    line-height: 70%;
+}

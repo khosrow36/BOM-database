@@ -28,7 +28,7 @@
                             <tr>
                                 <th scope="row">{{ forloop.counter }} </th>
                                 <td>{{ part.name }}</td>
-                                <td>{{ part.price }}</td>
+                                <td>{{ part.price }} zł</td>
                                 <td>
                                     <button
                                         type="button"
@@ -41,11 +41,15 @@
                                     </button>
                                 </td>
                             </tr>
-                            {{ part_price|add:part.price }}
                             {% endfor %}
                         </tbody>
                     </table>
-
+                    <div class="cost_summary col-3 text-right">
+                        <p>Cena produktu: <strong>{{ product.sell_price }}</strong> zł</p>
+                        <p>Cena części <strong>{{ product.parts_cost }}</strong> zł</p>
+                        <hr class="my-4">
+                        <p>Zysk: <strong>{{ product.product_margin }}</strong> zł</p>
+                    </div>
                 </div>
             </div>
         </div>

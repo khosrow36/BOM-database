@@ -19,3 +19,12 @@ class Product(models.Model):
     parts = models.ManyToManyField(Part)
     def __str__ (self):
         return self.name
+
+    def parts_cost(self):
+        cost = 0
+        for part in self.parts.all():
+            cost = cost + part.price
+        return cost
+
+    def product_margin(self):
+        return self.sell_price - self.parts_cost()
